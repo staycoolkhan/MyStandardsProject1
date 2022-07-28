@@ -31,5 +31,13 @@ namespace MyStandardsProject1.Api.Brokers.Storages
 
             return broker.Students;
         }
+
+        public async ValueTask<Student> SelectStudentByIdAsync(Guid studentId)
+        {
+            using var broker =
+                new StorageBroker(this.configuration);
+
+            return await broker.Students.FindAsync(studentId);
+        }
     }
 }
