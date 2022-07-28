@@ -1,3 +1,4 @@
+using System;
 using System.Linq;
 using System.Threading.Tasks;
 using MyStandardsProject1.Api.Brokers.DateTimes;
@@ -33,5 +34,8 @@ namespace MyStandardsProject1.Api.Services.Foundations.Students
 
         public IQueryable<Student> RetrieveAllStudents() =>
             TryCatch(() => this.storageBroker.SelectAllStudents());
+
+        public ValueTask<Student> RetrieveStudentByIdAsync(Guid studentId) =>
+            throw new NotImplementedException();
     }
 }
