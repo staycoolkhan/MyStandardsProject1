@@ -1,3 +1,4 @@
+using System.Linq;
 using System.Threading.Tasks;
 using MyStandardsProject1.Api.Brokers.DateTimes;
 using MyStandardsProject1.Api.Brokers.Loggings;
@@ -29,5 +30,8 @@ namespace MyStandardsProject1.Api.Services.Foundations.Students
 
                 return await this.storageBroker.InsertStudentAsync(student);
             });
+
+        public IQueryable<Student> RetrieveAllStudents() =>
+            throw new System.NotImplementedException();
     }
 }
