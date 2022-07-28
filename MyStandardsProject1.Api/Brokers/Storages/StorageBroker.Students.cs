@@ -23,5 +23,13 @@ namespace MyStandardsProject1.Api.Brokers.Storages
 
             return studentEntityEntry.Entity;
         }
+
+        public IQueryable<Student> SelectAllStudents()
+        {
+            using var broker =
+                new StorageBroker(this.configuration);
+
+            return broker.Students;
+        }
     }
 }
