@@ -39,5 +39,31 @@ namespace MyStandardsProject1.Api.Brokers.Storages
 
             return await broker.Students.FindAsync(studentId);
         }
+
+        public async ValueTask<Student> UpdateStudentAsync(Student student)
+        {
+            using var broker =
+                new StorageBroker(this.configuration);
+
+            EntityEntry<Student> studentEntityEntry =
+                broker.Students.Update(student);
+
+            await broker.SaveChangesAsync();
+
+            return studentEntityEntry.Entity;
+        }
+
+        public async ValueTask<Student> DeleteStudentAsync(Student student)
+        {
+            using var broker =
+                new StorageBroker(this.configuration);
+
+            EntityEntry<Student> studentEntityEntry =
+                broker.Students.Remove(student);
+
+            await broker.SaveChangesAsync();
+
+            return studentEntityEntry.Entity;
+        }
     }
 }
